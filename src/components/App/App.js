@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-
 import './App.css';
+import Nav from '../Nav/Nav'
 
 class App extends Component {
     componentDidMount () {
@@ -18,7 +18,9 @@ class App extends Component {
     render() {
         return (
         <Router>
+            <Nav/>
             <div>
+                
             <h1>D&D</h1>
             {/* <Switch> */}
                 {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
