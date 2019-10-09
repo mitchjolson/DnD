@@ -16,8 +16,8 @@ const Nav = () => (
         <Link className="nav-link" to="/conditions">
         	Conditions
         </Link>
-        <Link className="nav-link" to="/creatures">
-        	Creatures
+        <Link className="nav-link" to="/monsters">
+        	Monsters
         </Link>
         <Link className="nav-link" to="/spells">
             Spells

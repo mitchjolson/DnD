@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import test from './testReducer';
+import monsters from './monstersReducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -9,6 +10,7 @@ import test from './testReducer';
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
     test,
+    monsters,
 });
 
 export default rootReducer;

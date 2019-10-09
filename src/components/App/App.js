@@ -8,8 +8,9 @@ import {
 import {connect} from 'react-redux';
 
 import './App.css';
-import Nav from '../Nav/Nav'
-import Conditions from '../Conditions/Conditions'
+import Nav from '../Nav/Nav';
+import Conditions from '../Conditions/Conditions';
+import Monsters from '../Monsters/Monsters';
 
 class App extends Component {
     componentDidMount () {
@@ -27,6 +28,10 @@ class App extends Component {
                     exact
                     path="/conditions"
                     component={Conditions} />
+                <Route
+                    exact
+                    path="/monsters"
+                    component={Monsters} />
                 {/* <Route
                     exact
                     path="/pcn-view/:type/:id"
