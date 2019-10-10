@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Monsters extends Component {
 
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_MONSTERS', payload: '' });
+        // this.props.dispatch({ type: 'FETCH_MONSTERS', payload: '' });
     }
 
     addMonsters() {
