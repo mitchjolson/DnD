@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post('/add', async (req, res) => {
     // console.log('adding a monster, req.body is', req.body)
+    console.log('req.body.skills = ', req.body.skills)
     let connection = await pool.connect();
     try {
         await connection.query('BEGIN');
@@ -13,6 +14,9 @@ router.post('/add', async (req, res) => {
         );
         const monsterId = monsterInsertDetails.rows[0].id;
         console.log('the returned ID is', monsterId)
+        await connection.query(
+            'INSERT INTO monsters_skills (monster_id, acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation, medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19);', 
+            [monsterId, req.body.skills.acrobatics, req.body.skills.animal_handling, req.body.skills.arcana, req.body.skills.athletics, req.body.skills.deception, req.body.skills.history, req.body.skills.insight, req.body.skills.intimidation, req.body.skills.investigation, req.body.skills.medicine, req.body.skills.nature, req.body.skills.perception, req.body.skills.performance, req.body.skills.persuasion, req.body.skills.religion, req.body.skills.sleight_of_hand, req.body.skills.stealth, req.body.skills.survival]);
         for( let i=0; i< req.body.actions.length; i++){
             await connection.query('INSERT INTO monsters_actions (attack_bonus, damage_bonus, damage_dice, description, name, monster_id) VALUES ($1, $2, $3, $4, $5, $6);', 
             [req.body.actions[i].attack_bonus, req.body.actions[i].damage_bonus, req.body.actions[i].damage_dice, req.body.actions[i].desc, req.body.actions[i].name, monsterId]);
