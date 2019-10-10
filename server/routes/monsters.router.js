@@ -14,9 +14,12 @@ router.post('/add', async (req, res) => {
         const monsterId = monsterInsertDetails.rows[0].id;
         console.log('the returned ID is', monsterId)
         for( let i=0; i< req.body.actions.length; i++){
-            console.log('monster action is:', req.body.actions[i]);
             await connection.query('INSERT INTO monsters_actions (attack_bonus, damage_bonus, damage_dice, description, name, monster_id) VALUES ($1, $2, $3, $4, $5, $6);', 
             [req.body.actions[i].attack_bonus, req.body.actions[i].damage_bonus, req.body.actions[i].damage_dice, req.body.actions[i].desc, req.body.actions[i].name, monsterId]);
+        }
+        for( let i=0; i< req.body.legendary_actions.length; i++){
+            await connection.query('INSERT INTO monsters_legendary_actions (description, name, monster_id) VALUES ($1, $2, $3);', 
+            [req.body.legendary_actions[i].desc, req.body.legendary_actions[i].name, monsterId]);
         }
         await connection.query('COMMIT');
         res.sendStatus(201)

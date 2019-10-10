@@ -39,3 +39,84 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.monsters
     OWNER to postgres;
+
+
+-- Table: public.monsters_actions
+
+-- DROP TABLE public.monsters_actions;
+
+CREATE TABLE public.monsters_actions
+(
+    id integer NOT NULL DEFAULT nextval('monsters_actions_id_seq'::regclass),
+    attack_bonus integer,
+    damage_bonus integer,
+    damage_dice character varying(100) COLLATE pg_catalog."default",
+    description character varying(2000) COLLATE pg_catalog."default",
+    name character varying(100) COLLATE pg_catalog."default",
+    monster_id integer,
+    CONSTRAINT monsters_actions_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.monsters_actions
+    OWNER to postgres;
+
+
+-- Table: public.monsters_legendary_actions
+
+-- DROP TABLE public.monsters_legendary_actions;
+
+CREATE TABLE public.monsters_legendary_actions
+(
+    id integer NOT NULL DEFAULT nextval('monsters_legendary_actions_id_seq'::regclass),
+    description character varying(2000) COLLATE pg_catalog."default",
+    name character varying(100) COLLATE pg_catalog."default",
+    monster_id integer,
+    CONSTRAINT monsters_legendary_actions_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.monsters_legendary_actions
+    OWNER to postgres;
+
+
+-- Table: public.monsters_skills
+
+-- DROP TABLE public.monsters_skills;
+
+CREATE TABLE public.monsters_skills
+(
+    id integer NOT NULL DEFAULT nextval('monsters_skills_id_seq'::regclass),
+    monster_id integer,
+    acrobatics integer,
+    animal_handling integer,
+    arcana integer,
+    athletics integer,
+    deception integer,
+    history integer,
+    insight integer,
+    intimidation integer,
+    investigation integer,
+    medicine integer,
+    nature integer,
+    perception integer,
+    performance integer,
+    persuasion integer,
+    religion integer,
+    sleight_of_hand integer,
+    stealth integer,
+    survival integer
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.monsters_skills
+    OWNER to postgres;
