@@ -8,7 +8,7 @@ class Monsters extends Component {
     }
 
     addMonsters() {
-        this.props.dispatch({ type: 'ADD_MONSTERS', payload: this.props.reduxStore.monsters.results[1]})
+        this.props.dispatch({ type: 'ADD_MONSTERS', payload: this.props.reduxStore.monsters.results})
     }
     
     render() {
