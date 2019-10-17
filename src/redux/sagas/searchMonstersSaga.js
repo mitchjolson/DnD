@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* searchMonsters(action) {
     console.log('in searchmonsters')
-    const monster = action.payload.split(' ').join('_');
+    const monster = action.payload.split(' ').join('_').toLowerCase();
     try {
         const response = yield axios.get(`/api/monsters/search?monster=%${monster}%`);
         yield put({ type: 'SET_MONSTERS', payload: response.data })
