@@ -13,8 +13,6 @@ import Conditions from '../Conditions/Conditions';
 import Monsters from '../Monsters/Monsters';
 
 class App extends Component {
-    componentDidMount () {
-    }
 
     render() {
         return (

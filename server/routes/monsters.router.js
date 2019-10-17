@@ -46,4 +46,16 @@ router.post('/add', async (req, res) => {
     }
 })
 
+router.get('/', (req, res) => {
+    const sqlText = `SELECT * FROM monsters ORDER BY name LIMIT 50;`;
+    pool.query(sqlText)
+        .then(response => {
+            res.send(response.rows)
+        })
+        .catch(error => {
+            console.log('error getting monsters', error);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;

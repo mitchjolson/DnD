@@ -1,4 +1,4 @@
-const monstersReducer = (state = {}, action) => {
+const monstersReducer = (state = [], action) => {
     if (action.type === 'SET_MONSTERS') {
         return action.payload;
     } else {

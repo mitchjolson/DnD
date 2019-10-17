@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Conditions extends Component {
+
+    componentDidMount() {
+        // this.props.dispatch({ type: 'FETCH_MONSTERS' });
+    }
     
     render() {
 
