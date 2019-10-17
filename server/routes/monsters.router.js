@@ -58,4 +58,18 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/search', (req, res) => {
+    const sqlText = `SELECT * FROM monsters where slug like $1 ORDER BY name LIMIT 50;`;
+    const sqlValues = req.query.monster
+    console.log('sqlValues = ', sqlValues)
+    pool.query(sqlText, [sqlValues])
+        .then(response => {
+            res.send(response.rows)
+        })
+        .catch(error => {
+            console.log('error getting monsters', error);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;

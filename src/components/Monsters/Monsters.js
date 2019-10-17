@@ -17,6 +17,7 @@ class Monsters extends Component {
         this.setState({
             [propToChange]: event.target.value
         })
+        this.props.dispatch({ type: 'SEARCH_MONSTERS', payload: this.state.search });
     }
 
     render() {

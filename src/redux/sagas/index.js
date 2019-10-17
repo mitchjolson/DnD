@@ -1,7 +1,8 @@
 import { all } from 'redux-saga/effects';
 
-import fetchMonsterSaga from './fetchMonstersSaga';
 import addMonsterSaga from './addMonsterSaga';
+import fetchMonsterSaga from './fetchMonstersSaga';
+import searchMonsterSaga from './searchMonstersSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -14,5 +15,6 @@ export default function* rootSaga() {
     yield all([
         fetchMonsterSaga(),
         addMonsterSaga(),
+        searchMonsterSaga(),
     ]);
 }
