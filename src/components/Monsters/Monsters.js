@@ -5,8 +5,18 @@ import MonsterItem from '../MonsterItem/MonsterItem';
 
 class Monsters extends Component {
 
+    state = {
+        search: '',
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_MONSTERS' });
+    }
+
+    handleChangeFor = (event, propToChange) => {
+        this.setState({
+            [propToChange]: event.target.value
+        })
     }
 
     render() {
@@ -14,6 +24,13 @@ class Monsters extends Component {
         return (
             <>
              <h1>Monsters</h1>
+             <div>
+                <form onSubmit={this.handleSubmit}>
+                    <label>Monster Name: </label>
+                    <input type="text" value={this.state.search} onChange={(event) => this.handleChangeFor(event, 'search')} />
+                    <button type="submit">Search</button>
+                </form>
+                </div>
              <div>
                  <table>
                      <thead>
