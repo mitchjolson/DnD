@@ -7,18 +7,22 @@ class Monsters extends Component {
 
     state = {
         search: '',
-    }
+    };
 
     componentDidMount() {
         this.props.dispatch({ type: 'FETCH_MONSTERS' });
-    }
+    };
 
     handleChangeFor = (event, propToChange) => {
         this.setState({
             [propToChange]: event.target.value
         })
+        // this.props.dispatch({ type: 'SEARCH_MONSTERS', payload: this.state.search });
+    };
+
+    handleSubmit = () => {
         this.props.dispatch({ type: 'SEARCH_MONSTERS', payload: this.state.search });
-    }
+    };
 
     render() {
 
